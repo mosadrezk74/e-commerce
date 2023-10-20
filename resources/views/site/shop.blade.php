@@ -73,8 +73,7 @@
                                         <div class="product-img-action-wrap">
                                             <div class="product-img product-img-zoom">
                                                 <a href="{{ url('products/' . $p->id) }}">
-{{--                                                    <img class="default-img" src="{{ $p->photo }}" alt="">--}}
-                                                    <img src="{{asset('images/doctors/1.jpg')}}" width="50px" height="120px" >
+                                                    <img class="default-img" src="{{ 'storage/' . $p->photo }}" alt="">
                                                 </a>
                                             </div>
                                             <div class="product-action-1">

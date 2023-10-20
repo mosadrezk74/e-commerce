@@ -33,6 +33,7 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
+                                <td>#</td>
                                 <th>Photo</th>
                                 <th>Name</th>
                                 <th>Category</th>
@@ -44,9 +45,10 @@
 
                             @forelse ($products as $product)
                                 <tr>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>
-{{--                                        <img  style="width: 50px; height: 50px;" src="{{asset('images/doctors/'.$product->photo)}}">--}}
-                                    <img src="{{asset('images/doctors/1.png')}}" width="50px" height="50px" >
+                                        <img class="default-img" src="{{ 'storage/' . $product->photo }}" alt="">
+
                                     </td>
 
                                     <td>
@@ -57,7 +59,7 @@
                                     </td>
 
                                     <td>
-                                        <a href="{{ url('dashboard/products/' . $product->id) }}"
+                                        <a href="{{ route('products.edit' , $product ->id ) }}"
                                             class="btn btn-warning btn-sm">
                                             Edit
                                         </a>

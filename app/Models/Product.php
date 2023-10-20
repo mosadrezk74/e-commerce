@@ -16,15 +16,21 @@ class Product extends Model {
         'description',
         'price',
         'stock',
+        'photo',
         'category_id',
     ];
-    public function image(): MorphOne
-    {
-        return $this->morphOne(Image::class, 'imageable');
-    }
+
 
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
+    public function deleteOldRecord()
+    {
+        $oldRecord = $this->where('id', '<>', $this->id)->first();
+        if ($oldRecord) {
+            $oldRecord->delete();
+        }
+    }
+
 }
