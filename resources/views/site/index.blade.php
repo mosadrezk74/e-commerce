@@ -6,6 +6,18 @@
 
 @section('content')
     <main class="main">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+        @if (session()->has('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+        </div>
+            </div>
+        </div>
+
         <section class="home-slider position-relative pt-50">
             <div class="hero-slider-1 dot-style-1 dot-style-1-position-1">
                 <div class="single-hero-slider single-animation-wrap">

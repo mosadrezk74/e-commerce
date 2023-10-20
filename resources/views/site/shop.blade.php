@@ -9,8 +9,9 @@
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="index.html" rel="nofollow">Home</a>
-                    <span></span> Shop
+                    <a href="{{ url('/') }}" rel="nofollow">Home</a>
+                    <span></span>
+                    {{ isset($category) && $category ? $category->name : 'Shop' }}
                 </div>
             </div>
         </div>
@@ -71,7 +72,7 @@
                                     <div class="product-cart-wrap mb-30">
                                         <div class="product-img-action-wrap">
                                             <div class="product-img product-img-zoom">
-                                                <a href="product-details.html">
+                                                <a href="{{ url('products/' . $p->id) }}">
                                                     <img class="default-img" src="{{ $p->photo }}" alt="">
                                                     <img class="hover-img" src="{{ $p->photo }}" alt="">
                                                 </a>
@@ -91,11 +92,11 @@
                                         </div>
                                         <div class="product-content-wrap">
                                             <div class="product-category">
-                                                <a href="shop.html">
+                                                <a href="{{ url('shop/' . $p->category->id) }}">
                                                     {{ $p->category->name }}
                                                 </a>
                                             </div>
-                                            <h2><a href="product-details.html">
+                                            <h2><a href="{{ url('products/' . $p->id) }}">
                                                     {{ $p->name }}
                                                 </a></h2>
                                             <div class="rating-result" title="90%">
@@ -119,9 +120,9 @@
                                     </div>
                                 </div>
                             @empty
-                                    <div class="alert alert-warning">
-                                        No Results
-                                    </div>
+                                <div class="alert alert-warning">
+                                    No Results
+                                </div>
                             @endforelse
 
                         </div>

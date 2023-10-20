@@ -35,8 +35,15 @@
                 <div class="col-xl-3 col-lg-4">
                     <div class="header-info header-info-right">
                         <ul>
-                            <li><i class="fi-rs-key"></i><a href="login.html">Log In </a> / <a href="register.html">Sign
-                                    Up</a></li>
+                            <li>
+                                <i class="fi-rs-key"></i>
+                                <a href="{{ url('login') }}">Log In </a>
+                                /
+                                <a href="{{ url('register') }}">
+                                    Sign
+                                    Up
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -52,8 +59,9 @@
                 </div>
                 <div class="header-right">
                     <div class="search-style-1">
-                        <form action="#">
-                            <input type="text" placeholder="Search for items...">
+                        <form action="{{ url('search') }}">
+                            <input type="text" name="keyword" placeholder="Search for products..."
+                                value="{{ request('keyword') }}">
                         </form>
                     </div>
                     <div class="header-action-right">
@@ -120,6 +128,7 @@
 
     <div class="header-bottom header-bottom-bg-color sticky-bar">
         <div class="container">
+
             <div class="header-wrap header-space-between position-relative">
                 <div class="logo logo-width-1 d-block d-lg-none">
                     <a href="index.html"><img src="assets/imgs/logo/logo.png" alt="logo"></a>

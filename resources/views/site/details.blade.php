@@ -1,7 +1,7 @@
 ﻿@extends('site.layouts.layout')
 
 @section('title')
-    {{ $title }}
+    {{ $product->name }}
 @endsection
 
 @section('content')
@@ -10,8 +10,8 @@
             <div class="container">
                 <div class="breadcrumb">
                     <a href="index.html" rel="nofollow">Home</a>
-                    <span></span> Fashion
-                    <span></span> Abstract Print Patchwork Dress
+                    <span></span> {{ $product->category->name }}
+                    <span></span> {{ $product->name }}
                 </div>
             </div>
         </div>
@@ -27,36 +27,21 @@
                                         <!-- MAIN SLIDES -->
                                         <div class="product-image-slider">
                                             <figure class="border-radius-10">
-                                                <img src="assets/imgs/shop/product-16-2.jpg" alt="product image">
+                                                <img src="{{ $product->photo }}" alt="product image">
                                             </figure>
                                             <figure class="border-radius-10">
-                                                <img src="assets/imgs/shop/product-16-1.jpg" alt="product image">
+                                                <img src="{{ $product->photo }}" alt="product image">
                                             </figure>
                                             <figure class="border-radius-10">
-                                                <img src="assets/imgs/shop/product-16-3.jpg" alt="product image">
-                                            </figure>
-                                            <figure class="border-radius-10">
-                                                <img src="assets/imgs/shop/product-16-4.jpg" alt="product image">
-                                            </figure>
-                                            <figure class="border-radius-10">
-                                                <img src="assets/imgs/shop/product-16-5.jpg" alt="product image">
-                                            </figure>
-                                            <figure class="border-radius-10">
-                                                <img src="assets/imgs/shop/product-16-6.jpg" alt="product image">
-                                            </figure>
-                                            <figure class="border-radius-10">
-                                                <img src="assets/imgs/shop/product-16-7.jpg" alt="product image">
-                                            </figure>
+                                                <img src="{{ $product->photo }}" alt="product image">
+                                                <figure>
                                         </div>
                                         <!-- THUMBNAILS -->
                                         <div class="slider-nav-thumbnails pl-15 pr-15">
-                                            <div><img src="assets/imgs/shop/thumbnail-3.jpg" alt="product image"></div>
-                                            <div><img src="assets/imgs/shop/thumbnail-4.jpg" alt="product image"></div>
-                                            <div><img src="assets/imgs/shop/thumbnail-5.jpg" alt="product image"></div>
-                                            <div><img src="assets/imgs/shop/thumbnail-6.jpg" alt="product image"></div>
-                                            <div><img src="assets/imgs/shop/thumbnail-7.jpg" alt="product image"></div>
-                                            <div><img src="assets/imgs/shop/thumbnail-8.jpg" alt="product image"></div>
-                                            <div><img src="assets/imgs/shop/thumbnail-9.jpg" alt="product image"></div>
+                                            <div><img src="{{ $product->photo }}" alt="product image"></div>
+                                            <div><img src="{{ $product->photo }}" alt="product image"></div>
+                                            <div><img src="{{ $product->photo }}" alt="product image"></div>
+                                            <div><img src="{{ $product->photo }}" alt="product image"></div>
                                         </div>
                                     </div>
                                     <!-- End Gallery -->
@@ -80,10 +65,16 @@
                                 </div>
                                 <div class="col-md-6 col-sm-12 col-xs-12">
                                     <div class="detail-info">
-                                        <h2 class="title-detail">Colorful Pattern Shirts HD450</h2>
+                                        <h2 class="title-detail">
+                                            {{ $product->name }}
+                                        </h2>
                                         <div class="product-detail-rating">
                                             <div class="pro-details-brand">
-                                                <span> Brands: <a href="shop.html">Bootstrap</a></span>
+                                                <span> Category:
+                                                    <a href="{{ url('shop/' . $product->category->id) }}">
+                                                        {{ $product->category->name }}
+                                                    </a>
+                                                </span>
                                             </div>
                                             <div class="product-rate-cover text-end">
                                                 <div class="product-rate d-inline-block">
@@ -95,17 +86,20 @@
                                         </div>
                                         <div class="clearfix product-price-cover">
                                             <div class="product-price primary-color float-left">
-                                                <ins><span class="text-brand">$120.00</span></ins>
-                                                <ins><span class="old-price font-md ml-15">$200.00</span></ins>
+                                                <ins><span class="text-brand">
+                                                {{ $product->price }}
+                                                </span></ins>
+                                                <ins><span class="old-price font-md ml-15">
+                                                {{ $product->price + rand(10, 1000) }}
+                                                </span></ins>
                                                 <span class="save-price  font-md color3 ml-15">25% Off</span>
                                             </div>
                                         </div>
                                         <div class="bt-1 border-color-1 mt-15 mb-15"></div>
                                         <div class="short-desc mb-30">
-                                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam rem
-                                                officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore
-                                                impedit fuga eum eligendi? Officia doloremque facere quia. Voluptatum,
-                                                accusantium!</p>
+                                            <p>
+                                                {{ $product->description }}
+                                            </p>
                                         </div>
                                         <div class="product_sort_info font-xs mb-30">
                                             <ul>
@@ -116,7 +110,7 @@
                                                 <li><i class="fi-rs-credit-card mr-5"></i> Cash on Delivery available</li>
                                             </ul>
                                         </div>
-                                        <div class="attr-detail attr-color mb-15">
+                                        {{-- <div class="attr-detail attr-color mb-15">
                                             <strong class="mr-10">Color</strong>
                                             <ul class="list-filter color-filter">
                                                 <li><a href="#" data-color="Red"><span
@@ -144,7 +138,7 @@
                                                 <li><a href="#">XL</a></li>
                                                 <li><a href="#">XXL</a></li>
                                             </ul>
-                                        </div>
+                                        </div> --}}
                                         <div class="bt-1 border-color-1 mt-30 mb-30"></div>
                                         <div class="detail-extralink">
                                             <div class="detail-qty border radius">
@@ -163,12 +157,12 @@
                                             </div>
                                         </div>
                                         <ul class="product-meta font-xs color-grey mt-50">
-                                            <li class="mb-5">SKU: <a href="#">FWM15VKT</a></li>
                                             <li class="mb-5">Tags: <a href="#" rel="tag">Cloth</a>, <a
                                                     href="#" rel="tag">Women</a>, <a href="#"
                                                     rel="tag">Dress</a> </li>
-                                            <li>Availability:<span class="in-stock text-success ml-5">8 Items In
-                                                    Stock</span></li>
+                                            <li>Availability:<span class="in-stock text-success ml-5">
+                                            {{ $product->stock }}
+                                            </span></li>
                                         </ul>
                                     </div>
                                     <!-- Detail Info -->
