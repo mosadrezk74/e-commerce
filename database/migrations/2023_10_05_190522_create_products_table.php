@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->longText('description');
-//            $table->string('photo');
+            $table->string('photo');
             $table->double('price')->nullable()->default(0);
             $table->integer('stock')->default(0);
 
