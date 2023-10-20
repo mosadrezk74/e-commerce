@@ -74,7 +74,7 @@
                                             <div class="product-img product-img-zoom">
                                                 <a href="{{ url('products/' . $p->id) }}">
 {{--                                                    <img class="default-img" src="{{ $p->photo }}" alt="">--}}
-                                                    <img   src="{{asset('img/products/'.$p->photo)}}">
+                                                    <img src="{{asset('images/doctors/1.jpg')}}" width="50px" height="120px" >
                                                 </a>
                                             </div>
                                             <div class="product-action-1">

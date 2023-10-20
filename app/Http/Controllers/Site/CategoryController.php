@@ -19,8 +19,10 @@ class CategoryController extends Controller {
         }
 
         $products = $products->paginate(9);
+        $categories = Category::all();
 
 
-        return view('site.shop', compact('products', 'category'));
+
+        return view('site.shop', compact('products', 'category', 'categories'));
     }
 }

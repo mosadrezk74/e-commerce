@@ -46,10 +46,11 @@ return [
 
         'upload_image' => [
             'driver' => 'local',
-            'root' => public_path('img/products'),
+            'root' => public_path('images/'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
+
 
 
 

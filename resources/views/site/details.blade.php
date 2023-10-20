@@ -27,41 +27,25 @@
                                         <!-- MAIN SLIDES -->
                                         <div class="product-image-slider">
                                             <figure class="border-radius-10">
-                                                <img src="{{ $product->photo }}" alt="product image">
+                                                <img src="{{asset('images/doctors/1.jpg')}}" >
                                             </figure>
                                             <figure class="border-radius-10">
-                                                <img src="{{ $product->photo }}" alt="product image">
+                                                <img src="{{asset('images/doctors/1.jpg')}}"  >
                                             </figure>
                                             <figure class="border-radius-10">
-                                                <img src="{{ $product->photo }}" alt="product image">
+                                                <img src="{{asset('images/doctors/1.jpg')}}" >
                                                 <figure>
                                         </div>
                                         <!-- THUMBNAILS -->
                                         <div class="slider-nav-thumbnails pl-15 pr-15">
-                                            <div><img src="{{ $product->photo }}" alt="product image"></div>
-                                            <div><img src="{{ $product->photo }}" alt="product image"></div>
-                                            <div><img src="{{ $product->photo }}" alt="product image"></div>
-                                            <div><img src="{{ $product->photo }}" alt="product image"></div>
+                                            <div><img src="{{asset('images/doctors/1.jpg')}}" alt="product image"></div>
+                                            <div><img src="{{asset('images/doctors/1.jpg')}}" alt="product image"></div>
+                                            <div><img src="{{asset('images/doctors/1.jpg')}}" alt="product image"></div>
+                                            <div><img src="{{asset('images/doctors/1.jpg')}}" alt="product image"></div>
                                         </div>
                                     </div>
                                     <!-- End Gallery -->
-                                    <div class="social-icons single-share">
-                                        <ul class="text-grey-5 d-inline-block">
-                                            <li><strong class="mr-10">Share this:</strong></li>
-                                            <li class="social-facebook"><a href="#"><img
-                                                        src="assets/imgs/theme/icons/icon-facebook.svg" alt=""></a>
-                                            </li>
-                                            <li class="social-twitter"> <a href="#"><img
-                                                        src="assets/imgs/theme/icons/icon-twitter.svg" alt=""></a>
-                                            </li>
-                                            <li class="social-instagram"><a href="#"><img
-                                                        src="assets/imgs/theme/icons/icon-instagram.svg" alt=""></a>
-                                            </li>
-                                            <li class="social-linkedin"><a href="#"><img
-                                                        src="assets/imgs/theme/icons/icon-pinterest.svg" alt=""></a>
-                                            </li>
-                                        </ul>
-                                    </div>
+
                                 </div>
                                 <div class="col-md-6 col-sm-12 col-xs-12">
                                     <div class="detail-info">

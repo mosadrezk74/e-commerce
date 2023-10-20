@@ -68,7 +68,7 @@
 
                         <label for="form-label">
                             Product Image  </label>
-                        <input type="file"  class="form-control" accept="img/*" name="photo" >
+                        <input type="file" accept="image/*" name="photo" onchange="loadFile(event)">
 
                     </div>
 

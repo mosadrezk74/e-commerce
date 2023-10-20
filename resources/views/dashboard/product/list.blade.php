@@ -33,6 +33,7 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
+                                <th>Photo</th>
                                 <th>Name</th>
                                 <th>Category</th>
                                 <th>Actions</th>
@@ -44,25 +45,29 @@
                             @forelse ($products as $product)
                                 <tr>
                                     <td>
-{{--                                        <img src="{{ $product->path }}" alt="{{ $product->name }}">--}}
-                                        <img   src="{{ $product->photo }}">
-
+{{--                                        <img  style="width: 50px; height: 50px;" src="{{asset('images/doctors/'.$product->photo)}}">--}}
+                                    <img src="{{asset('images/doctors/1.png')}}" width="50px" height="50px" >
                                     </td>
+
                                     <td>
                                         {{ $product->name }}
                                     </td>
                                     <td>
                                         {{ $product->category->name }}
                                     </td>
+
                                     <td>
                                         <a href="{{ url('dashboard/products/' . $product->id) }}"
                                             class="btn btn-warning btn-sm">
                                             Edit
                                         </a>
-
-                                        <a href="{{ url('dashboard/products/' . $product->id . '/delete') }}"
-                                            class="btn btn-danger btn-sm">Delete</a>
+                                        <form action="{{ route('products.destroy' , $product ->id ) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <input  class="btn btn-danger btn-sm"  data-effect="effect-scale"  data-toggle="modal" type="submit" value="Delete">
+                                        </form>
                                     </td>
+
                                 </tr>
                             @empty
                                 <tr>
