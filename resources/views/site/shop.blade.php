@@ -73,8 +73,8 @@
                                         <div class="product-img-action-wrap">
                                             <div class="product-img product-img-zoom">
                                                 <a href="{{ url('products/' . $p->id) }}">
-                                                    <img class="default-img" src="{{ $p->photo }}" alt="">
-                                                    <img class="hover-img" src="{{ $p->photo }}" alt="">
+{{--                                                    <img class="default-img" src="{{ $p->photo }}" alt="">--}}
+                                                    <img   src="{{asset('img/products/'.$p->photo)}}">
                                                 </a>
                                             </div>
                                             <div class="product-action-1">

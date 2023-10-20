@@ -65,8 +65,11 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Photo</label>
-                        <input class="form-control" type="file" name="photo">
+
+                        <label for="form-label">
+                            Product Image  </label>
+                        <input type="file"  class="form-control" accept="img/*" name="photo" >
+
                     </div>
 
                     <div class="mb-3">

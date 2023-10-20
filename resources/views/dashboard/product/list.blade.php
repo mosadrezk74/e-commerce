@@ -44,6 +44,11 @@
                             @forelse ($products as $product)
                                 <tr>
                                     <td>
+{{--                                        <img src="{{ $product->path }}" alt="{{ $product->name }}">--}}
+                                        <img   src="{{ $product->photo }}">
+
+                                    </td>
+                                    <td>
                                         {{ $product->name }}
                                     </td>
                                     <td>
