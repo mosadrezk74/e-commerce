@@ -27,28 +27,41 @@
                                         <!-- MAIN SLIDES -->
                                         <div class="product-image-slider">
                                             <figure class="border-radius-10">
-                                                <img class="default-img" src="{{ 'storage/' . $product->photo }}" alt="">
-
+                                                <img src="{{ $product->photo }}" alt="product image">
                                             </figure>
                                             <figure class="border-radius-10">
-                                                <img class="default-img" src="{{ 'storage/' . $product->photo }}" alt="">
-
+                                                <img src="{{ $product->photo }}" alt="product image">
                                             </figure>
                                             <figure class="border-radius-10">
-                                                <img class="default-img" src="{{ 'storage/' . $product->photo }}" alt="">
-
+                                                <img src="{{ $product->photo }}" alt="product image">
                                                 <figure>
                                         </div>
                                         <!-- THUMBNAILS -->
                                         <div class="slider-nav-thumbnails pl-15 pr-15">
-                                            <div><img src="{{asset('storage/' . $product->photo)}}" alt="product image"></div>
-                                            <div><img src="{{asset('storage/' . $product->photo)}}" alt="product image"></div>
-                                            <div><img src="{{asset('storage/' . $product->photo)}}" alt="product image"></div>
-                                            <div><img src="{{asset('storage/' . $product->photo)}}" alt="product image"></div>
+                                            <div><img src="{{ $product->photo }}" alt="product image"></div>
+                                            <div><img src="{{ $product->photo }}" alt="product image"></div>
+                                            <div><img src="{{ $product->photo }}" alt="product image"></div>
+                                            <div><img src="{{ $product->photo }}" alt="product image"></div>
                                         </div>
                                     </div>
                                     <!-- End Gallery -->
-
+                                    <div class="social-icons single-share">
+                                        <ul class="text-grey-5 d-inline-block">
+                                            <li><strong class="mr-10">Share this:</strong></li>
+                                            <li class="social-facebook"><a href="#"><img
+                                                        src="assets/imgs/theme/icons/icon-facebook.svg" alt=""></a>
+                                            </li>
+                                            <li class="social-twitter"> <a href="#"><img
+                                                        src="assets/imgs/theme/icons/icon-twitter.svg" alt=""></a>
+                                            </li>
+                                            <li class="social-instagram"><a href="#"><img
+                                                        src="assets/imgs/theme/icons/icon-instagram.svg" alt=""></a>
+                                            </li>
+                                            <li class="social-linkedin"><a href="#"><img
+                                                        src="assets/imgs/theme/icons/icon-pinterest.svg" alt=""></a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                                 <div class="col-md-6 col-sm-12 col-xs-12">
                                     <div class="detail-info">
@@ -74,11 +87,11 @@
                                         <div class="clearfix product-price-cover">
                                             <div class="product-price primary-color float-left">
                                                 <ins><span class="text-brand">
-                                                {{ $product->price }}
-                                                </span></ins>
+                                                        {{ $product->price }}
+                                                    </span></ins>
                                                 <ins><span class="old-price font-md ml-15">
-                                                {{ $product->price + rand(10, 1000) }}
-                                                </span></ins>
+                                                        {{ $product->price + rand(10, 1000) }}
+                                                    </span></ins>
                                                 <span class="save-price  font-md color3 ml-15">25% Off</span>
                                             </div>
                                         </div>
@@ -99,29 +112,31 @@
                                         </div>
 
                                         <div class="bt-1 border-color-1 mt-30 mb-30"></div>
-                                        <div class="detail-extralink">
-                                            <div class="detail-qty border radius">
-                                                <a href="#" class="qty-down"><i
-                                                        class="fi-rs-angle-small-down"></i></a>
-                                                <span class="qty-val">1</span>
-                                                <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
+
+                                        <form action="{{ url('add-to-cart') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{ $product->id }}">
+                                            <div class="detail-extralink row">
+                                                <div class="detail-qty radius col"
+                                                    style="max-width: inherit !important;
+                                            padding: 0 !important;">
+                                                    <input type="number" name="quantity" value="1">
+                                                </div>
+                                                <div class="product-extra-link2 col">
+                                                    <button type="submit" class="button button-add-to-cart">
+                                                        Add to cart
+                                                    </button>
+                                                </div>
                                             </div>
-                                            <div class="product-extra-link2">
-                                                <button type="submit" class="button button-add-to-cart">Add to
-                                                    cart</button>
-                                                <a aria-label="Add To Wishlist" class="action-btn hover-up"
-                                                    href="wishlist.php"><i class="fi-rs-heart"></i></a>
-                                                <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i
-                                                        class="fi-rs-shuffle"></i></a>
-                                            </div>
-                                        </div>
+                                        </form>
+
                                         <ul class="product-meta font-xs color-grey mt-50">
                                             <li class="mb-5">Tags: <a href="#" rel="tag">Cloth</a>, <a
                                                     href="#" rel="tag">Women</a>, <a href="#"
                                                     rel="tag">Dress</a> </li>
                                             <li>Availability:<span class="in-stock text-success ml-5">
-                                            {{ $product->stock }}
-                                            </span></li>
+                                                    {{ $product->stock }}
+                                                </span></li>
                                         </ul>
                                     </div>
                                     <!-- Detail Info -->

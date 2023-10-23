@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Image;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductStoreRequest;
-use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller {
     /**
@@ -56,37 +54,27 @@ class ProductController extends Controller {
         //
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     */
     public function edit(string $id)
     {
-        $product = Product::findorfail($id);
-        $categories= Category::all();
-        return view('dashboard.product.edit',compact('product'  ,'categories'));
+        //
     }
 
-    public function update(Request $request, $product)
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
     {
-
-        Product::findOrFail($product);
-        $product = new Product();
-        $product ->name = strip_tags(  $request -> input ('name'));
-        $product ->price = strip_tags(  $request -> input ('price'));
-        $product ->description = strip_tags(  $request -> input ('description'));
-        $product ->category_id = strip_tags(  $request -> input ('category_id'));
-        $product ->photo = strip_tags(  $request -> input ('photo'));
-         $product->deleteOldRecord();
-        $product->save();
-        return redirect()->route('products.edit' , $product );
+        //
     }
 
-
-
-    public function destroy($product)
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
     {
-        $to_delete = Product::find($product);
-        $to_delete->delete();
-        return redirect() -> route('products.index');
+        //
     }
-
-
-
 }

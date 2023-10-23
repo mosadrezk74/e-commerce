@@ -11,6 +11,7 @@ class HeaderComposer {
      */
     public function compose(View $view): void
     {
-        $view->with('categories', Category::all());
+        $view->with('categories', Category::all())
+            ->with('cart', request()->cookie('prods'));
     }
 }

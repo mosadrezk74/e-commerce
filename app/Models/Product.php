@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -20,17 +19,21 @@ class Product extends Model {
         'category_id',
     ];
 
+    protected function photo(): Attribute
+    {
+        return Attribute::make(
+            get: function (string $value) {
+                if (Str::contains($value, 'https')) {
+                    return $value;
+                }
+
+                return asset('storage/' . $value);
+            },
+        );
+    }
 
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
-    public function deleteOldRecord()
-    {
-        $oldRecord = $this->where('id', '<>', $this->id)->first();
-        if ($oldRecord) {
-            $oldRecord->delete();
-        }
-    }
-
 }

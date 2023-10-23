@@ -65,11 +65,8 @@
                     </div>
 
                     <div class="mb-3">
-
-                        <label for="form-label">
-                            Product Image  </label>
-                        <input type="file" accept="image/*" name="photo" onchange="loadFile(event)">
-
+                        <label class="form-label">Photo</label>
+                        <input class="form-control" type="file" name="photo">
                     </div>
 
                     <div class="mb-3">

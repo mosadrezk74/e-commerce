@@ -35,15 +35,20 @@
                 <div class="col-xl-3 col-lg-4">
                     <div class="header-info header-info-right">
                         <ul>
-                            <li>
-                                <i class="fi-rs-key"></i>
-                                <a href="{{ url('login') }}">Log In </a>
-                                /
-                                <a href="{{ url('register') }}">
-                                    Sign
-                                    Up
-                                </a>
-                            </li>
+                            @if (Auth::check())
+                                <li>
+                                    Welcome back, {{ Auth::user()->name }}
+                                </li>
+                            @else
+                                <li>
+                                    <i class="fi-rs-key"></i>
+                                    <a href="{{ url('login') }}">Log In </a>
+                                    /
+                                    <a href="{{ url('register') }}">
+                                        Sign Up
+                                    </a>
+                                </li>
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -74,12 +79,14 @@
                                 </a>
                             </div>
                             <div class="header-action-icon-2">
-                                <a class="mini-cart-icon" href="cart.html">
+                                <a class="mini-cart-icon" href="{{ url('cart') }}">
                                     <img alt="Surfside Media"
                                         src="{{ asset('assets/imgs/theme/icons/icon-cart.svg') }}">
-                                    <span class="pro-count blue">2</span>
+                                    <span class="pro-count blue">
+                                        {{ empty($cart) ? 0 : count($cart) }}
+                                    </span>
                                 </a>
-                                <div class="cart-dropdown-wrap cart-dropdown-hm2">
+                                {{-- <div class="cart-dropdown-wrap cart-dropdown-hm2">
                                     <ul>
                                         <li>
                                             <div class="shopping-cart-img">
@@ -117,7 +124,7 @@
                                             <a href="checkout.html">Checkout</a>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -166,21 +173,25 @@
                                         Shop
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#">
-                                        My Account
-                                        <i class="fi-rs-angle-down"></i>
-                                    </a>
-                                    <ul class="sub-menu">
-                                        <li><a href="#">Dashboard</a></li>
-                                        <li><a href="#">Products</a></li>
-                                        <li><a href="#">Categories</a></li>
-                                        <li><a href="#">Coupons</a></li>
-                                        <li><a href="#">Orders</a></li>
-                                        <li><a href="#">Customers</a></li>
-                                        <li><a href="#">Logout</a></li>
-                                    </ul>
-                                </li>
+
+                                @if (Auth::check())
+                                    <li>
+                                        <a href="#">
+                                            My Account
+                                            <i class="fi-rs-angle-down"></i>
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li><a href="#">Profile</a></li>
+                                            <li><a href="#">Orders</a></li>
+                                            <li>
+                                                <a href="{{ url('logout') }}">
+                                                    Logout
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                @endif
+
                             </ul>
                         </nav>
                     </div>
