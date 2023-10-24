@@ -58,7 +58,7 @@
 
                                     <td>
                                         <a href="{{ url('dashboard/products/' . $product->id) }}"
-                                            class="btn btn-warning btn-sm">
+                                           class="btn btn-warning btn-sm">
                                             Edit
                                         </a>
                                         <form action="{{ route('products.destroy' , $product ->id ) }}" method="post">

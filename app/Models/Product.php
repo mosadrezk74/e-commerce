@@ -27,4 +27,18 @@ class Product extends Model {
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function calculateTotalPriceInCart($cartData)
+    {
+        $totalPrice = 0;
+
+        foreach ($cartData as $id => $quantity) {
+            $product = $this->find($id); // Assuming $this represents the Product model
+            if ($product) {
+                $totalPrice += $product->price * $quantity;
+            }
+        }
+
+        return $totalPrice;
+    }
 }

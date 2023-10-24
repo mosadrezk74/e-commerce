@@ -79,7 +79,11 @@ class ProductController extends Controller {
     {
         $to_delete = Product::find($product);
         $to_delete->delete();
+<<<<<<< Updated upstream
         return redirect() -> route('dashboard.product');
+=======
+        return redirect() -> route('products.index');
+>>>>>>> Stashed changes
     }
 
     public function verifyAndStoreImage(Request $request, $inputname , $foldername , $disk, $imageable_id, $imageable_type) {
